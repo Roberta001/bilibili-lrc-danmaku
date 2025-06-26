@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node src/main.ts",
     "build": "tsc",
-    "pkg": "pkg dist/main.js --output bilibili-danmaku.exe"
+    "pkg": "npm run build && pkg dist/main.js --output bilibili-danmaku.exe"
   },
   "bin": "dist/main.js",
   "pkg": {
