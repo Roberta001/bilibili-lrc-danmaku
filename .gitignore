@@ -1,0 +1,18 @@
+# Node.js
+node_modules/
+dist/
+ECHO is off.
+# IDE 
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+ECHO is off.
+# Build artifacts
+*.exe
+ECHO is off.
+# 敏感信息和用户配置
+cookie.json
+config.json
