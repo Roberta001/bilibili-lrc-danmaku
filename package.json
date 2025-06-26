@@ -12,7 +12,8 @@
   "pkg": {
     "scripts": [
       "dist/**/*.js",
-      "node_modules/axios/lib/**/*.js"
+      "node_modules/axios/lib/**/*",
+      "node_modules/axios/dist/**/*"
     ],
     "assets": [],
     "targets": [

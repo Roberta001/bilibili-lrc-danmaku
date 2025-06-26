@@ -2,12 +2,12 @@ name: Build Windows Executable
 
 on:
   push:
-    branches: [ "main" ] # 当代码推送到 main 分支时触发
-  workflow_dispatch: # 允许手动触发
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: windows-latest # 使用最新的 Windows 环境
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
@@ -16,23 +16,24 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # 使用 Node.js 18
+          node-version: '18'
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci # 使用 ci 更快、更稳定
+        run: npm ci
 
       - name: Build executable
-        run: npm run pkg # 运行 package.json 中定义的 pkg 脚本
+        run: npm run pkg
 
       - name: Prepare release assets
         run: |
           mkdir release
           move bilibili-danmaku.exe release/
+          copy README.md release/
           copy config.example.json release/
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4 # <-- 已更新到 v4
+        uses: actions/upload-artifact@v4
         with:
           name: bilibili-danmaku-windows
           path: release/
