@@ -27,12 +27,8 @@ jobs:
 
       - name: Prepare release assets
         run: |
-          # 创建一个发布文件夹
           mkdir release
-          # 移动可执行文件
           move bilibili-danmaku.exe release/
-          # 复制说明文件和配置文件模板
-          copy README.md release/
           copy config.example.json release/
 
       - name: Upload artifact
